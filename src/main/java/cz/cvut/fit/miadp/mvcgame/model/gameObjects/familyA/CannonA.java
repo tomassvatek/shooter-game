@@ -31,19 +31,19 @@ public class CannonA extends AbsCannon {
 
     @Override
     public void moveUp() {
-        int newDy = this.position.getY() + (-1 * MvcGameConfig.MOVE_STEP);
+        int newDy = this.position.getY() + (-1 * MvcGameConfig.CannonA_MOVE_STEP);
         if (newDy < MvcGameConfig.MIN_CANNON_POS_Y) return;
 
-        this.move(new Vector(0, -1 * MvcGameConfig.MOVE_STEP));
+        this.move(new Vector(0, -1 * MvcGameConfig.CannonA_MOVE_STEP));
     }
 
     //TODO: Full-scren is bigger then MAX_CANNON_POS_Y
     @Override
     public void moveDown() {
-        int newDy = this.position.getY() + MvcGameConfig.MOVE_STEP;
+        int newDy = this.position.getY() + MvcGameConfig.CannonA_MOVE_STEP;
         if (newDy > MvcGameConfig.MAX_CANNON_POS_Y) return;
 
-        this.move((new Vector(0, MvcGameConfig.MOVE_STEP)));
+        this.move((new Vector(0, MvcGameConfig.CannonA_MOVE_STEP)));
     }
 
     @Override

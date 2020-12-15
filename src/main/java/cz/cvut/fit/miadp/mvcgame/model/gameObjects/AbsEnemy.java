@@ -6,8 +6,11 @@ import cz.cvut.fit.miadp.mvcgame.strategy.IMovable;
 import cz.cvut.fit.miadp.mvcgame.visitor.IVisitor;
 
 public abstract class AbsEnemy extends LifetimeLimitedGameObject implements IPrototype<AbsEnemy>, IMovable {
-    public AbsEnemy(Position position) {
+    protected int bonus;
+
+    public AbsEnemy(Position position, int bonus) {
         super(position);
+        this.bonus = bonus;
     }
 
     @Override
@@ -20,4 +23,8 @@ public abstract class AbsEnemy extends LifetimeLimitedGameObject implements IPro
 
     @Override
     public abstract AbsEnemy clone();
+
+    public int getBonus() {
+        return this.bonus;
+    }
 }

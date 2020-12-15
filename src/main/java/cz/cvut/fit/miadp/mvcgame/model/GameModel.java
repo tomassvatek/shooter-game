@@ -1,6 +1,6 @@
 package cz.cvut.fit.miadp.mvcgame.model;
 
-import cz.cvut.fit.miadp.mvcgame.abstractfactory.GameObjectFactory_A;
+import cz.cvut.fit.miadp.mvcgame.abstractfactory.GameObjectFactory_B;
 import cz.cvut.fit.miadp.mvcgame.abstractfactory.IGameObjectFactory;
 import cz.cvut.fit.miadp.mvcgame.command.AbstractGameCmd;
 import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
@@ -42,7 +42,7 @@ public class GameModel implements IGameModel {
         this.activeMissileMovingStrategy = new SimpleMissileMovingStrategy();
         this.activeEnemyMovingStrategy = new RealisticEnemyMovingStrategy();
 
-        this.gameObjectFactory = new GameObjectFactory_A(this);
+        this.gameObjectFactory = new GameObjectFactory_B(this);
 
         this.cannon = this.gameObjectFactory.createCannon();
         this.missiles = new ArrayList<>();
@@ -147,7 +147,7 @@ public class GameModel implements IGameModel {
                     Position collisionPos = new Position(enemy.getPosition().getX(), enemy.getPosition().getY());
                     this.collisions.add(this.gameObjectFactory.createCollision(collisionPos));
 
-                    this.incrementScore();
+                    this.incrementScore(enemy);
                     break;
                 }
             }
@@ -312,8 +312,8 @@ public class GameModel implements IGameModel {
         return clones;
     }
 
-    private void incrementScore() {
-        this.score++;
+    private void incrementScore(AbsEnemy enemy) {
+        this.score += enemy.getBonus();
     }
 
     private String getGameInfoText() {

@@ -8,7 +8,7 @@ import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
 public class SimpleMissileMovingStrategy implements IMovingStrategy<AbsMissile> {
     @Override
     public void updatePosition(AbsMissile missile) {
-        missile.move(new Vector(MvcGameConfig.MOVE_STEP, 0));
+        missile.move(new Vector(MvcGameConfig.CannonA_MOVE_STEP, 0));
 //        Position pos = mis.getPosition();
 //        if (mis.getAngle() == 0) {
 //            pos.setX(pos.getX() + 1 * mis.getVelocity());

@@ -10,8 +10,9 @@ public class EnemyA extends AbsEnemy {
     private IMovingStrategy<AbsEnemy> movingStrategy;
 
     public EnemyA(Position position) {
-        super(position);
+        super(position, 1);
         this.movingStrategy = new RandomEnemyMovingStrategy();
+        this.bonus = 1;
     }
 
     @Override
@@ -28,4 +29,5 @@ public class EnemyA extends AbsEnemy {
     public AbsEnemy clone() {
         return new EnemyA(this.position.clone());
     }
+
 }

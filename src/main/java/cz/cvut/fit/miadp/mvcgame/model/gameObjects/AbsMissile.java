@@ -3,11 +3,13 @@ package cz.cvut.fit.miadp.mvcgame.model.gameObjects;
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.prototype.IPrototype;
 import cz.cvut.fit.miadp.mvcgame.strategy.IMovable;
+import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
 import cz.cvut.fit.miadp.mvcgame.visitor.IVisitor;
 
 public abstract class AbsMissile extends LifetimeLimitedGameObject implements IPrototype<AbsMissile>, IMovable {
-    private double initAngle;
-    private int initVelocity;
+    protected IMovingStrategy<AbsMissile> movingStrategy;
+    protected double initAngle;
+    protected int initVelocity;
 
     public AbsMissile(Position position, double initAngle, int initVelocity) {
         super(position);

@@ -9,7 +9,7 @@ public class AdvanceEnemyA extends AbsEnemy {
     private IMovingStrategy<AbsEnemy> movingStrategy;
 
     public AdvanceEnemyA(Position position) {
-        super(position);
+        super(position, 2);
         this.movingStrategy = new RealisticEnemyMovingStrategy();
     }
 

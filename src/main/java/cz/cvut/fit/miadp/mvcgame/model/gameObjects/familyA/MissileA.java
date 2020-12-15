@@ -6,7 +6,6 @@ import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
 import cz.cvut.fit.miadp.mvcgame.visitor.IVisitor;
 
 public class MissileA extends AbsMissile {
-    private IMovingStrategy<AbsMissile> movingStrategy;
 
     public MissileA(Position position, double initAngle, int initVelocity, IMovingStrategy<AbsMissile> movingStrategy) {
         super(position, initAngle, initVelocity);

@@ -30,26 +30,12 @@ public class GameObjectFactory_A implements IGameObjectFactory {
 
     @Override
     public AbsEnemy createEnemy() {
-        Random rnd = new Random();
-
-        int xBoundIndex = MvcGameConfig.MAX_X / 50;
-        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
-        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
-        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
-
-        return new EnemyA(new Position(posX, posY));
+        return new EnemyA(generateRandomPosition());
     }
 
     @Override
     public AbsEnemy createAdvanceEnemy() {
-        Random rnd = new Random();
-
-        int xBoundIndex = MvcGameConfig.MAX_X / 50;
-        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
-        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
-        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
-
-        return new AdvanceEnemyA(new Position(posX, posY));
+        return new AdvanceEnemyA(generateRandomPosition());
     }
 
     @Override
@@ -63,6 +49,15 @@ public class GameObjectFactory_A implements IGameObjectFactory {
         return new GameInfoA(position, text);
     }
 
+    private Position generateRandomPosition() {
+        Random rnd = new Random();
 
-    //TODO: Enemies, Collision, GameInfo
+        int xBoundIndex = MvcGameConfig.MAX_X / 50;
+        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
+        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
+        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
+
+        return new Position(posX, posY);
+    }
+
 }

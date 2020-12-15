@@ -7,7 +7,6 @@ public class GameController {
     private IGameModel model;
     private long lastShootTime = 0;
 
-
     public GameController(IGameModel model) {
         this.model = model;
     }

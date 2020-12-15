@@ -4,7 +4,9 @@ public class MvcGameConfig {
     public static final int MAX_X = 1280;
     public static final int MAX_Y = 720;
 
-    public static final int MOVE_STEP = 10;
+    public static final int CannonA_MOVE_STEP = 10;
+    public static final int CannonB_MOVE_STEP = 20;
+
     public static final int ENEMY_STEP = 3;
     public static final int MAX_ENEMIES = 6;
 
