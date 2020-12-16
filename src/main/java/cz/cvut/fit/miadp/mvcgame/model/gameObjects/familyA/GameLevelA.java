@@ -49,6 +49,8 @@ public class GameLevelA extends AbsGameLevel {
     }
 
     private void levelUp() {
+        if (this.level == this.levelsCount) return;
+
         this.level++;
         this.nextLevelScoreStep *= 2;
     }
