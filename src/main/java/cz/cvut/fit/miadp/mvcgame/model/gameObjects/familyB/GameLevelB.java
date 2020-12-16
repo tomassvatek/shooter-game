@@ -30,7 +30,7 @@ public class GameLevelB extends AbsGameLevel {
         List<AbsEnemy> enemies = new ArrayList<>();
 
         for (int i = 0; i < missingEnemies; i++) {
-            int random = randomGen.nextInt(this.levelsCount - this.level);
+            int random = randomGen.nextInt(this.levelsCount + 1 - this.level);
 
             if (random == 0)
                 enemies.add(this.gameObjectFactory.createAdvanceEnemy());

@@ -22,7 +22,8 @@ public class GameObjectFactory_B implements IGameObjectFactory {
 
     @Override
     public AbsMissile createMissile(Position position, double initAngle, int initVelocity) {
-        return new MissileB(position, initAngle, initVelocity);
+        return new MissileB(position, initAngle, initVelocity,
+                this.model.getMissileMovingStrategy());
     }
 
     @Override

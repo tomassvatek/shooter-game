@@ -2,13 +2,12 @@ package cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyB;
 
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsMissile;
-import cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyA.MissileA;
-import cz.cvut.fit.miadp.mvcgame.strategy.missile.SimpleMissileMovingStrategy;
+import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
 
 public class MissileB extends AbsMissile {
-    public MissileB(Position position, double initAngle, int initVelocity) {
+    public MissileB(Position position, double initAngle, int initVelocity, IMovingStrategy<AbsMissile> movingStrategy) {
         super(position, initAngle, initVelocity);
-        this.movingStrategy = new SimpleMissileMovingStrategy();
+        this.movingStrategy = movingStrategy;
     }
 
     @Override
@@ -18,6 +17,6 @@ public class MissileB extends AbsMissile {
 
     @Override
     public AbsMissile clone() {
-        return new MissileB(this.position.clone(), this.getInitAngle(), this.getInitVelocity());
+        return new MissileB(this.position.clone(), this.getInitAngle(), this.getInitVelocity(), this.movingStrategy);
     }
 }

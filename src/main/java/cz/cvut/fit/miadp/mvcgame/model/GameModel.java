@@ -301,7 +301,8 @@ public class GameModel implements IGameModel {
     }
 
     private String getGameInfoText() {
-        return "Level: " + this.gameLevel.getLevel() + ", " + "Score: " + this.gameLevel.getScore()
+        return "Level: " + this.gameLevel.getLevel() + "/" + this.gameLevel.getLevelsCount()
+                + ", " + "Score: " + this.gameLevel.getScore()
                 + ", " + "Angle: " + this.cannon.getAngle() + ", " + "Power: "
                 + this.cannon.getPower() + ", " + "Shooting mode: " + this.cannon.getShootingMode()
                 + ", " + "Missile moving mode: " + this.activeMissileMovingStrategy.getName();

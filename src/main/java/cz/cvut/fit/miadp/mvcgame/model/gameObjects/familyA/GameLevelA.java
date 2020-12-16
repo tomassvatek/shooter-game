@@ -11,7 +11,6 @@ import java.util.Random;
 
 public class GameLevelA extends AbsGameLevel {
     private IGameObjectFactory gameObjectFactory;
-    private int nextLevelScoreStep;
 
     public GameLevelA(int level, int score, IGameObjectFactory gameObjectFactory) {
         this.level = level;
@@ -30,7 +29,7 @@ public class GameLevelA extends AbsGameLevel {
         List<AbsEnemy> enemies = new ArrayList<>();
 
         for (int i = 0; i < missingEnemies; i++) {
-            int random = randomGen.nextInt(this.levelsCount - this.level);
+            int random = randomGen.nextInt(this.levelsCount + 1 - this.level);
 
             if (random == 0)
                 enemies.add(this.gameObjectFactory.createAdvanceEnemy());

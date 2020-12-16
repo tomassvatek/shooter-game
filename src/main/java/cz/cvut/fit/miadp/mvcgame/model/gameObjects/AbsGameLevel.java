@@ -8,6 +8,7 @@ public abstract class AbsGameLevel implements IPrototype<AbsGameLevel> {
     protected int level;
     protected int score;
     protected int levelsCount;
+    protected int nextLevelScoreStep;
 
     public int getLevel() {
         return this.level;
@@ -17,7 +18,13 @@ public abstract class AbsGameLevel implements IPrototype<AbsGameLevel> {
         return this.score;
     }
 
-    public int getLevelsCount() { return this.levelsCount; }
+    public int getLevelsCount() {
+        return this.levelsCount;
+    }
+
+    public int getNextLevelScoreStep() {
+        return this.nextLevelScoreStep;
+    }
 
     public abstract List<AbsEnemy> generateEnemies(int enemiesAlive);
 
