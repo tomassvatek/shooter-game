@@ -42,12 +42,6 @@ public class GameController {
             case "P":
                 this.model.registerCommand(new ToggleMovingStrategyCmd(this.model));
                 break;
-//                case "L":
-//                    CareTaker.getInstance().createMemento();
-//                    break;
-//                case "R":
-//                    CareTaker.getInstance().setMemento();
-//                    break;
             case "B":
                 //this.model.registerCommand(new UndoLastCmd(this.model));
                 // TODO: Use command instead

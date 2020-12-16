@@ -35,8 +35,9 @@ public class CannonB extends AbsCannon {
     }
 
     @Override
-    public void primitiveShoot() {
-        this.shootings.add(this.gameObjectFactory.createMissile(new Position(this.position.getX(), this.position.getY()),
+    public void primitiveShoot(Vector missileMove) {
+        this.shootings.add(this.gameObjectFactory.createMissile(new Position(this.position.getX() + missileMove.getDx(),
+                        this.position.getY() + missileMove.getDy()),
                 this.angle, this.power));
     }
 

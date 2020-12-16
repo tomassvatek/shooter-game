@@ -16,12 +16,12 @@ public class MvcGameConfig {
     public static final int MAX_CANNON_POS_Y = 655;
     public static final int MIN_CANNON_POS_Y = 15;
 
-    public static final double GRAVITY = 2.8;
+    public static final double GRAVITY = 8.1;
     public static final double INIT_ANGLE = 0;
-    public static final int INIT_POWER = 10;
 
+    public static final int CANNON_INIT_POWER = 5;
     public static final int CANNON_POWER_STEP = 1;
-    public static final int CANNON_POWER_MAX = 6;
+    public static final int CANNON_POWER_MAX = 10;
     public static final int CANNON_POWER_MIN = 0;
 
     public static final double ANGLE_STEP = 1;

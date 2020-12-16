@@ -1,5 +1,6 @@
 package cz.cvut.fit.miadp.mvcgame.model.gameObjects;
 
+import cz.cvut.fit.miadp.mvcgame.model.Vector;
 import cz.cvut.fit.miadp.mvcgame.prototype.IPrototype;
 import cz.cvut.fit.miadp.mvcgame.state.DoubleShootingMode;
 import cz.cvut.fit.miadp.mvcgame.state.IShootingMode;
@@ -25,7 +26,7 @@ public abstract class AbsCannon extends GameObject implements IPrototype<AbsCann
 
     public abstract void moveDown();
 
-    public abstract void primitiveShoot();
+    public abstract void primitiveShoot(Vector missileMove);
 
     public abstract List<AbsMissile> shoot();
 

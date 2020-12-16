@@ -1,6 +1,6 @@
 package cz.cvut.fit.miadp.mvcgame.model;
 
-import cz.cvut.fit.miadp.mvcgame.abstractfactory.GameObjectFactory_B;
+import cz.cvut.fit.miadp.mvcgame.abstractfactory.GameObjectFactory_A;
 import cz.cvut.fit.miadp.mvcgame.abstractfactory.IGameObjectFactory;
 import cz.cvut.fit.miadp.mvcgame.command.AbstractGameCmd;
 import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
@@ -42,7 +42,7 @@ public class GameModel implements IGameModel {
         this.activeMissileMovingStrategy = new SimpleMissileMovingStrategy();
         this.activeEnemyMovingStrategy = new RealisticEnemyMovingStrategy();
 
-        this.gameObjectFactory = new GameObjectFactory_B(this);
+        this.gameObjectFactory = new GameObjectFactory_A(this);
 
         this.cannon = this.gameObjectFactory.createCannon();
         this.missiles = new ArrayList<>();
@@ -169,7 +169,6 @@ public class GameModel implements IGameModel {
         this.collisions.removeAll(remove);
     }
 
-    // TODO: Extend more strategies, strategies should be toggleable from the UI
     public void toggleMovingStrategy() {
         if (this.activeMissileMovingStrategy instanceof SimpleMissileMovingStrategy) {
             this.activeMissileMovingStrategy = new RealisticMissileMovingStrategy();

@@ -4,6 +4,7 @@ import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
 import cz.cvut.fit.miadp.mvcgame.strategy.enemy.RealisticEnemyMovingStrategy;
+import cz.cvut.fit.miadp.mvcgame.visitor.IVisitor;
 
 public class AdvanceEnemyA extends AbsEnemy {
     private IMovingStrategy<AbsEnemy> movingStrategy;
@@ -21,5 +22,10 @@ public class AdvanceEnemyA extends AbsEnemy {
     @Override
     public AbsEnemy clone() {
         return new AdvanceEnemyA(this.position);
+    }
+
+    @Override
+    public void acceptVisitor(IVisitor visitor) {
+        visitor.visitAdvanceEnemy(this);
     }
 }

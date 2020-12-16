@@ -23,7 +23,7 @@ public class CannonA extends AbsCannon {
         this.position = position;
         this.gameObjectFactory = gameObjectFactory;
 
-        this.power = MvcGameConfig.INIT_POWER;
+        this.power = MvcGameConfig.CANNON_INIT_POWER;
         this.angle = MvcGameConfig.INIT_ANGLE;
 
         this.shootings = new ArrayList<>();
@@ -57,8 +57,9 @@ public class CannonA extends AbsCannon {
     }
 
     @Override
-    public void primitiveShoot() {
-        this.shootings.add(this.gameObjectFactory.createMissile(new Position(this.position.getX(), this.position.getY()),
+    public void primitiveShoot(Vector missileMove) {
+        this.shootings.add(this.gameObjectFactory.createMissile(new Position(this.position.getX() + missileMove.getDx(),
+                        this.position.getY() + missileMove.getDy()),
                 this.angle, this.power));
     }
 
