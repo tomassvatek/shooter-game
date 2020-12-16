@@ -6,6 +6,7 @@ import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsCollision;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsGameInfo;
+import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsGameLevel;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyA.*;
 
 import java.util.Random;
@@ -47,6 +48,11 @@ public class GameObjectFactory_A implements IGameObjectFactory {
     public AbsGameInfo createGameInfo(String text) {
         Position position = new Position(5, 10);
         return new GameInfoA(position, text);
+    }
+
+    @Override
+    public AbsGameLevel createGameLevel() {
+        return new GameLevelA(1, 0, this);
     }
 
     private Position generateRandomPosition() {

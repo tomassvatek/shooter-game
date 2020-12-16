@@ -25,29 +25,14 @@ public class GameObjectFactory_B implements IGameObjectFactory {
         return new MissileB(position, initAngle, initVelocity);
     }
 
-    //TODO: Change generating enemies
     @Override
     public AbsEnemy createEnemy() {
-        Random rnd = new Random();
-
-        int xBoundIndex = MvcGameConfig.MAX_X / 50;
-        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
-        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
-        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
-
-        return new EnemyB(new Position(posX, posY));
+        return new EnemyB(generateRandomPosition());
     }
 
     @Override
     public AbsEnemy createAdvanceEnemy() {
-        Random rnd = new Random();
-
-        int xBoundIndex = MvcGameConfig.MAX_X / 50;
-        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
-        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
-        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
-
-        return new AdvanceEnemyB(new Position(posX, posY));
+        return new AdvanceEnemyB(generateRandomPosition());
     }
 
     @Override
@@ -57,8 +42,23 @@ public class GameObjectFactory_B implements IGameObjectFactory {
 
     @Override
     public AbsGameInfo createGameInfo(String text) {
-        // TODO: Change positon for family B
         Position position = new Position(5, 10);
         return new GameInfoB(position, text);
+    }
+
+    @Override
+    public AbsGameLevel createGameLevel() {
+        return new GameLevelB(1, 0, this);
+    }
+
+    private Position generateRandomPosition() {
+        Random rnd = new Random();
+
+        int xBoundIndex = MvcGameConfig.MAX_X / 50;
+        int yBoundIndex = MvcGameConfig.MAX_Y / 25;
+        int posX = rnd.nextInt(xBoundIndex - 1) * 50 + 50;
+        int posY = rnd.nextInt(yBoundIndex - 1) * 25 + 25;
+
+        return new Position(posX, posY);
     }
 }

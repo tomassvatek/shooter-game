@@ -15,4 +15,6 @@ public interface IGameObjectFactory {
     AbsCollision createCollision(Position position);
 
     AbsGameInfo createGameInfo(String text);
+
+    AbsGameLevel createGameLevel();
 }

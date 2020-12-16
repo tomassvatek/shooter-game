@@ -20,15 +20,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 
 public class GameModel implements IGameModel {
-
+    private AbsGameLevel gameLevel;
     private AbsGameInfo gameInfo;
     private AbsCannon cannon;
 
     private List<AbsMissile> missiles;
     private List<AbsEnemy> enemies;
     private List<AbsCollision> collisions;
-
-    private int score;
 
     private List<IObserver> observers;
     private IGameObjectFactory gameObjectFactory;
@@ -44,12 +42,11 @@ public class GameModel implements IGameModel {
 
         this.gameObjectFactory = new GameObjectFactory_A(this);
 
+        this.gameLevel = this.gameObjectFactory.createGameLevel();
         this.cannon = this.gameObjectFactory.createCannon();
         this.missiles = new ArrayList<>();
         this.enemies = new ArrayList<>();
         this.collisions = new ArrayList<>();
-
-        this.score = 0;
 
         this.gameInfo = this.gameObjectFactory.createGameInfo(this.getGameInfoText());
 
@@ -147,7 +144,7 @@ public class GameModel implements IGameModel {
                     Position collisionPos = new Position(enemy.getPosition().getX(), enemy.getPosition().getY());
                     this.collisions.add(this.gameObjectFactory.createCollision(collisionPos));
 
-                    this.incrementScore(enemy);
+                    this.gameLevel.addScore(enemy.getBonus());
                     break;
                 }
             }
@@ -232,15 +229,7 @@ public class GameModel implements IGameModel {
 
     @Override
     public void generateEnemies() {
-        int missingEnemies = MvcGameConfig.MAX_ENEMIES - this.enemies.size();
-
-        for (int i = 0; i < missingEnemies; i++) {
-            if (i % 2 == 0)
-                this.enemies.add(this.gameObjectFactory.createEnemy());
-            else
-                this.enemies.add(this.gameObjectFactory.createAdvanceEnemy());
-        }
-
+        this.enemies.addAll(this.gameLevel.generateEnemies(this.enemies.size()));
         this.notifyObservers();
     }
 
@@ -266,6 +255,7 @@ public class GameModel implements IGameModel {
     }
 
     private class Memento {
+        private AbsGameLevel gameLevel;
         private AbsCannon cannon;
         private AbsGameInfo gameInfo;
 
@@ -276,11 +266,10 @@ public class GameModel implements IGameModel {
         private int score;
     }
 
-    //TODO: These two methods are same! There are not same, the first one has not parameter
     public Object createMemento() {
         Memento m = new Memento();
 
-        m.score = this.score;
+        m.gameLevel = this.gameLevel.clone();
         m.cannon = this.cannon.clone();
         m.gameInfo = this.gameInfo.clone();
 
@@ -294,7 +283,7 @@ public class GameModel implements IGameModel {
     public void setMemento(Object memento) {
         Memento m = (Memento) memento;
 
-        this.score = m.score;
+        this.gameLevel = m.gameLevel.clone();
         this.cannon = m.cannon.clone();
         this.gameInfo = m.gameInfo.clone();
 
@@ -311,14 +300,11 @@ public class GameModel implements IGameModel {
         return clones;
     }
 
-    private void incrementScore(AbsEnemy enemy) {
-        this.score += enemy.getBonus();
-    }
-
     private String getGameInfoText() {
-        return "Score: " + this.score + ", " + "Angle: " + this.cannon.getAngle() + ", " + "Power: "
+        return "Level: " + this.gameLevel.getLevel() + ", " + "Score: " + this.gameLevel.getScore()
+                + ", " + "Angle: " + this.cannon.getAngle() + ", " + "Power: "
                 + this.cannon.getPower() + ", " + "Shooting mode: " + this.cannon.getShootingMode()
-                + ", " + "Missile moving mode: " + this.activeMissileMovingStrategy.getClass().getName();
+                + ", " + "Missile moving mode: " + this.activeMissileMovingStrategy.getName();
     }
 
 }

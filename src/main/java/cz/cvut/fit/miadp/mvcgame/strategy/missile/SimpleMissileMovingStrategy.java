@@ -19,4 +19,9 @@ public class SimpleMissileMovingStrategy implements IMovingStrategy<AbsMissile> 
 //            pos.setY(pos.getY() - 1 * mis.getVelocity());
 //        }
     }
+
+    @Override
+    public String getName() {
+        return "Simple";
+    }
 }

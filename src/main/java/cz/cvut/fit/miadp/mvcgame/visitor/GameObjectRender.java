@@ -3,9 +3,6 @@ package cz.cvut.fit.miadp.mvcgame.visitor;
 import cz.cvut.fit.miadp.mvcgame.bridge.IGameGraphics;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.*;
 
-//import javafx.scene.media.Media;
-//import javafx.scene.media.MediaPlayer;
-
 public class GameObjectRender implements IVisitor {
     private IGameGraphics gr;
 
@@ -24,12 +21,6 @@ public class GameObjectRender implements IVisitor {
     @Override
     public void visitMissile(AbsMissile missile) {
         this.gr.drawImage("images/missile.png", missile.getPosition());
-        //String musicFile = "test.mp3";     // For example
-
-//        String file = new File(musicFile).toURI().toString();
-//        Media sound = new Media(file);
-//        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-//        mediaPlayer.play();
     }
 
     @Override

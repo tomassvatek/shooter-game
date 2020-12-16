@@ -19,7 +19,6 @@ public class MvcGame {
     public void init() {
         model = new GameModelProxy(new GameModel());
 
-        model.generateEnemies();
         view = new GameView(model);
         controller = view.getController();
 

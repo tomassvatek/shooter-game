@@ -23,4 +23,9 @@ public class RealisticMissileMovingStrategy implements IMovingStrategy<AbsMissil
         missile.move(new Vector(dX, dY));
     }
 
+    @Override
+    public String getName() {
+        return "Realistic";
+    }
+
 }

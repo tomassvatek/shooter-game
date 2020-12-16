@@ -9,7 +9,7 @@ public class MvcGameConfig {
 
     public static final int ENEMY_STEP = 2;
     public static final int ADVANCED_ENEMY_STEP = 6;
-    public static final int MAX_ENEMIES = 6;
+    public static final int MAX_ENEMIES = 8;
 
     public static final int CANNON_POS_X = 50;
     public static final int CANNON_POS_Y = MAX_Y / 2;

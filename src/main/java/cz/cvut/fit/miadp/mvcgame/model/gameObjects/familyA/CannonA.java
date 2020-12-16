@@ -103,4 +103,5 @@ public class CannonA extends AbsCannon {
 
         return clone;
     }
+
 }

@@ -16,6 +16,11 @@ public class RandomEnemyMovingStrategy implements IMovingStrategy<AbsEnemy> {
         updateDirection(enemy, direction);
     }
 
+    @Override
+    public String getName() {
+        return "Random";
+    }
+
     private void updateDirection(AbsEnemy enemy, int direction) {
         switch (direction) {
             case 0:

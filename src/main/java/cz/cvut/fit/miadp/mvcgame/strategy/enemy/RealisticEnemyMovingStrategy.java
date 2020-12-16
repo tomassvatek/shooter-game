@@ -35,6 +35,11 @@ public class RealisticEnemyMovingStrategy implements IMovingStrategy<AbsEnemy> {
         }
     }
 
+    @Override
+    public String getName() {
+        return "Realistic";
+    }
+
     private Position generatePoint() {
         Random rnd = new Random();
         int x = -1;
