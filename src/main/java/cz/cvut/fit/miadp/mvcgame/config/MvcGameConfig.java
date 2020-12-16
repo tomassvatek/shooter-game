@@ -7,7 +7,8 @@ public class MvcGameConfig {
     public static final int CannonA_MOVE_STEP = 10;
     public static final int CannonB_MOVE_STEP = 20;
 
-    public static final int ENEMY_STEP = 3;
+    public static final int ENEMY_STEP = 2;
+    public static final int ADVANCED_ENEMY_STEP = 6;
     public static final int MAX_ENEMIES = 6;
 
     public static final int CANNON_POS_X = 50;
@@ -29,4 +30,6 @@ public class MvcGameConfig {
     public static final double MIN_ANGLE = 0;
 
     public static final double IMAGE_SIZE = 30;
+
+    public static boolean BOLD_TEXT_ENABLED = true;
 }

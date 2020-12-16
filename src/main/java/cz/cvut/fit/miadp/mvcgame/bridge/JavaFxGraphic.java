@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 
 
 public class JavaFxGraphic implements IGameGraphicImplementor {
-    protected GraphicsContext graphicsContext;
+    private GraphicsContext graphicsContext;
 
     public JavaFxGraphic(GraphicsContext graphicsContext) {
         this.graphicsContext = graphicsContext;

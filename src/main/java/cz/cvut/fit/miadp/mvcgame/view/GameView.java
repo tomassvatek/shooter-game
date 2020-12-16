@@ -46,7 +46,6 @@ public class GameView implements IObserver {
     }
 
     public void setGraphicContext(IGameGraphics gr) {
-
         this.graphicContext = gr;
         this.gameObjectRender.setGr(gr);
     }
@@ -54,8 +53,6 @@ public class GameView implements IObserver {
     @Override
     public void update() {
         this.updateCnt++;
-        //this.wasUpdate = true;
-        //render();
     }
 
     public boolean wasUpdate() {

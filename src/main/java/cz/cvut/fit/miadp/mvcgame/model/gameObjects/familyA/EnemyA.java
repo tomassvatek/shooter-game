@@ -1,5 +1,6 @@
 package cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyA;
 
+import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.miadp.mvcgame.strategy.IMovingStrategy;
@@ -23,6 +24,11 @@ public class EnemyA extends AbsEnemy {
     @Override
     public void acceptVisitor(IVisitor visitor) {
         visitor.visitEnemy(this);
+    }
+
+    @Override
+    public int getMoveStep() {
+        return MvcGameConfig.ENEMY_STEP;
     }
 
     @Override

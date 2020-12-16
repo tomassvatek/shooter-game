@@ -23,13 +23,13 @@ public class RealisticEnemyMovingStrategy implements IMovingStrategy<AbsEnemy> {
         int yDif = pos.getY() - posE.getY();
 
         if (xDif < 0 && Math.abs(xDif) > 10) {
-            enemy.move(new Vector(-MvcGameConfig.ENEMY_STEP, 0));
+            enemy.move(new Vector(-enemy.getMoveStep(), 0));
         } else if (xDif > 0 && Math.abs(xDif) > 10) {
-            enemy.move(new Vector(MvcGameConfig.ENEMY_STEP, 0));
+            enemy.move(new Vector(enemy.getMoveStep(), 0));
         } else if (yDif < 0 && Math.abs(yDif) > 10) {
-            enemy.move(new Vector(0, -MvcGameConfig.ENEMY_STEP));
+            enemy.move(new Vector(0, -enemy.getMoveStep()));
         } else if (yDif > 0 && Math.abs(yDif) > 10) {
-            enemy.move(new Vector(0, MvcGameConfig.ENEMY_STEP));
+            enemy.move(new Vector(0, enemy.getMoveStep()));
         } else {
             this.pos = this.generatePoint();
         }

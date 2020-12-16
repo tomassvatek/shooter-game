@@ -2,6 +2,7 @@ package cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyB;
 
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsGameInfo;
+import cz.cvut.fit.miadp.mvcgame.visitor.IVisitor;
 
 public class GameInfoB extends AbsGameInfo {
     public GameInfoB(Position position, String text) {
@@ -17,6 +18,11 @@ public class GameInfoB extends AbsGameInfo {
     @Override
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public void acceptVisitor(IVisitor visitor) {
+        visitor.visitGameInfo(this);
     }
 
     @Override

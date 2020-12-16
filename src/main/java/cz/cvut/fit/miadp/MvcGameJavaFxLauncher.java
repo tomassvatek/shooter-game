@@ -1,8 +1,12 @@
 package cz.cvut.fit.miadp;
 
+import cz.cvut.fit.miadp.mvcgame.MvcGame;
 import cz.cvut.fit.miadp.mvcgame.bridge.GameGraphics;
+import cz.cvut.fit.miadp.mvcgame.bridge.IGameGraphicImplementor;
 import cz.cvut.fit.miadp.mvcgame.bridge.IGameGraphics;
 import cz.cvut.fit.miadp.mvcgame.bridge.JavaFxGraphic;
+import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.miadp.mvcgame.decorator.GameGraphicTextDecorator;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -14,8 +18,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-
-import cz.cvut.fit.miadp.mvcgame.MvcGame;
 
 public class MvcGameJavaFxLauncher extends Application {
 
@@ -42,7 +44,14 @@ public class MvcGameJavaFxLauncher extends Application {
         root.getChildren().add(canvas);
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        IGameGraphics gr = new GameGraphics(new JavaFxGraphic(gc));
+
+        // Decorator pattern
+        IGameGraphicImplementor graphicImplementor = new JavaFxGraphic(gc);
+        if (MvcGameConfig.BOLD_TEXT_ENABLED) {
+            graphicImplementor = new GameGraphicTextDecorator(graphicImplementor, gc);
+        }
+
+        IGameGraphics gr = new GameGraphics(graphicImplementor);
 
         ArrayList<String> pressedKeysCodes = new ArrayList<>();
 

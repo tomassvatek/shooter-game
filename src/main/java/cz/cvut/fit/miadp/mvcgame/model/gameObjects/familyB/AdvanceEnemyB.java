@@ -1,5 +1,6 @@
 package cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyB;
 
+import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.miadp.mvcgame.model.gameObjects.familyA.AdvanceEnemyA;
@@ -19,6 +20,11 @@ public class AdvanceEnemyB extends AbsEnemy {
     @Override
     public AbsEnemy clone() {
         return new AdvanceEnemyA(this.position);
+    }
+
+    @Override
+    public int getMoveStep() {
+        return MvcGameConfig.ADVANCED_ENEMY_STEP;
     }
 
     @Override

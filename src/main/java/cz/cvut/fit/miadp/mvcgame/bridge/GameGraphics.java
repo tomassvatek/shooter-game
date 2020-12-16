@@ -3,7 +3,7 @@ package cz.cvut.fit.miadp.mvcgame.bridge;
 import cz.cvut.fit.miadp.mvcgame.model.Position;
 
 public class GameGraphics implements IGameGraphics {
-    private IGameGraphicImplementor implementor;
+    protected IGameGraphicImplementor implementor;
 
     public GameGraphics(IGameGraphicImplementor gameGraphicImplementor) {
         this.implementor = gameGraphicImplementor;

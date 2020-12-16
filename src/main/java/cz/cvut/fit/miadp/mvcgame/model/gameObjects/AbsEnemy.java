@@ -27,4 +27,6 @@ public abstract class AbsEnemy extends LifetimeLimitedGameObject implements IPro
     public int getBonus() {
         return this.bonus;
     }
+
+    public abstract int getMoveStep();
 }

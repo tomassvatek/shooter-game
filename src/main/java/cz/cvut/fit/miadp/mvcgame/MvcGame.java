@@ -1,16 +1,15 @@
 package cz.cvut.fit.miadp.mvcgame;
 
-import java.util.List;
-
 import cz.cvut.fit.miadp.mvcgame.bridge.IGameGraphics;
-import cz.cvut.fit.miadp.mvcgame.controller.GameController;
 import cz.cvut.fit.miadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.miadp.mvcgame.controller.GameController;
 import cz.cvut.fit.miadp.mvcgame.memento.CareTaker;
 import cz.cvut.fit.miadp.mvcgame.model.GameModel;
-
 import cz.cvut.fit.miadp.mvcgame.model.IGameModel;
 import cz.cvut.fit.miadp.mvcgame.proxy.GameModelProxy;
 import cz.cvut.fit.miadp.mvcgame.view.GameView;
+
+import java.util.List;
 
 public class MvcGame {
     private IGameModel model;
@@ -43,7 +42,7 @@ public class MvcGame {
     }
 
     public String getWindowTitle() {
-        return "The MI-ADP.16 MvcGame";
+        return "Shooter";
     }
 
     public int getWindowWidth() {
